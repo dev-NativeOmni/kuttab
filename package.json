@@ -7,12 +7,14 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "deploy:cloudflare": "npm run generate && npx wrangler pages deploy .output/public --project-name=kuttab",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/content": "^2.13.4",
     "@nuxtjs/sitemap": "^8.5.0",
-    "nuxt": "^3.13.2"
+    "nuxt": "^3.13.2",
+    "wrangler": "^4.20.5"
   },
   "dependencies": {
     "fuse.js": "^7.0.0"
