@@ -1,178 +1,169 @@
-# Kuttab — Perpustakaan Kitab Islam Digital
+# Kuttab
 
-Perpustakaan kitab Islam digital berbasis **Nuxt 3** + **@nuxt/content** + **Fuse.js**, di-*deploy* ke **Cloudflare Pages**.
+Perpustakaan kitab Islam digital berbasis Nuxt 3, dengan konten kitab dalam format Markdown, pencarian teks penuh menggunakan Fuse.js, dan deployment ke Cloudflare Pages.
 
----
+Kuttab dirancang untuk membaca kitab klasik Islam secara ringan, cepat, dan responsif di desktop maupun mobile.
 
-## Fitur
+## Fitur utama
 
-- Baca kitab klasik Islam (Nahwu, Fiqih, Hadits, Tafsir, Tasawuf, Sejarah, English)  
-- Matan Arab asli (RTL) + terjemah Indonesia + syarah ringkas  
-- Pencarian teks penuh berbasis Fuse.js (client-side, tanpa server)  
-- Mode gelap / terang (mengikuti preferensi OS, bisa di-toggle)  
-- Reading progress bar & animasi halus  
-- Dukungan penuh mobile (bottom navigation)  
-- Static site — cepat, aman, gratis hosting di Cloudflare Pages  
+- Koleksi kitab Islam berdasarkan kategori: Nahwu, Fiqih, Hadits, Tafsir, Tasawuf, Sejarah, dan English
+- Teks Arab dengan styling RTL dan font Amiri
+- Pencarian teks penuh berbasis client-side dengan Fuse.js
+- Tampilan responsif untuk perangkat mobile dan desktop
+- Menu katalog dan reader kitab yang mudah dinavigasi
+- Mode hafalan untuk menyembunyikan matan Arab agar bisa latihan hafalan
+- SSG (Static Site Generation) dengan Nuxt dan deployment ke Cloudflare Pages
 
----
+## Tech stack
 
-## Memulai Pengembangan
+- Nuxt 3
+- @nuxt/content
+- Fuse.js
+- Pure CSS (design tokens via custom properties)
+- Cloudflare Pages
+
+## Struktur proyek
 
 ```bash
-# 1. Clone repo
+kuttab/
+├── app.vue
+├── error.vue
+├── nuxt.config.ts
+├── package.json
+├── README.md
+├── assets/
+│   └── css/
+│       └── main.css
+├── components/
+│   ├── SearchBox.vue
+│   └── content/
+│       └── ArMatn.vue
+├── composables/
+│   └── useSearch.ts
+├── content/
+│   └── baca/
+│       ├── english/
+│       ├── fiqih/
+│       ├── hadits/
+│       ├── nahwu/
+│       ├── sejarah/
+│       ├── tafsir/
+│       └── tasawuf/
+├── layouts/
+│   └── default.vue
+├── pages/
+│   ├── 404.vue
+│   ├── index.vue
+│   ├── baca/
+│   │   └── [...slug].vue
+│   └── katalog/
+│       ├── index.vue
+│       └── [kategori].vue
+└── .github/
+    └── workflows/
+        └── deploy.yml
+```
+
+## Persiapan pengembangan
+
+```bash
+# clone repository
 git clone https://github.com/<username>/kuttab.git
 cd kuttab
 
-# 2. Install dependencies
+# install dependency
 npm install
 
-# 3. Jalankan dev server
+# jalankan dev server
 npm run dev
-# → buka http://localhost:3000
 ```
 
----
+Setelah itu, buka:
 
-## Struktur Proyek
-
-```
-kuttab/
-├── assets/css/
-│   └── main.css              # Design tokens & global styles
-├── components/
-│   └── SearchBox.vue         # Komponen pencarian + dropdown
-├── composables/
-│   └── useSearch.ts          # Fuse.js search composable
-├── content/
-│   └── baca/
-│       ├── nahwu/            # Kitab-kitab nahwu (.md)
-│       ├── fiqih/            # Kitab-kitab fiqih (.md)
-│       ├── hadits/           # Kitab-kitab hadits (.md)
-│       ├── tafsir/           # Kitab-kitab tafsir (.md)
-│       ├── tasawuf/          # Kitab-kitab tasawuf (.md)
-│       ├── sejarah/          # Kitab-kitab sejarah (.md)
-│       └── english/          # Islamic texts in English (.md)
-├── layouts/
-│   └── default.vue           # Header, footer, mobile nav
-├── pages/
-│   ├── index.vue             # Halaman beranda
-│   ├── katalog/
-│   │   ├── index.vue         # Katalog semua kitab
-│   │   └── [kategori].vue    # Halaman per kategori
-│   └── baca/
-│       └── [...slug].vue     # Reader (e-reader) kitab
-├── nuxt.config.ts
-└── package.json
+```text
+http://localhost:3000
 ```
 
----
+## Menambah konten baru
 
-## Menambah Kitab Baru
+Buat file Markdown di folder kategori yang sesuai, misalnya:
 
-Buat file Markdown baru di `content/baca/<kategori>/<nama-kitab>.md`:
+```bash
+content/baca/nahwu/nama-kitab.md
+```
 
-```markdown
+Contoh frontmatter:
+
+```yaml
 ---
 title: "Judul Kitab"
 titleAr: "عنوان الكتاب"
-author: "Nama Pengarang (tahun wafat)"
-category: "nahwu"   # nahwu | fiqih | hadits | tafsir | tasawuf | sejarah | english
-level: "Dasar"      # Dasar | Menengah | Lanjutan
+author: "Nama Pengarang (w. XXX H)"
+category: "nahwu"
+level: "Dasar"
 description: "Deskripsi singkat kitab ini."
-tags: [tag1, tag2]
+tags: [nahwu, matan]
 ---
+```
 
-## Bab Pertama
+Gunakan komponen custom berikut untuk menampilkan teks Arab:
 
-Isi konten di sini...
-
+```md
 ::ar-matn
 النَّصُّ الْعَرَبِيُّ هُنَا
 ::
 ```
 
-Komponen `::ar-matn` akan merender teks Arab dengan font Amiri, RTL, dan styling khusus.
+## Build dan deploy
 
----
+### Build lokal
 
-## Deploy ke Cloudflare Pages
+```bash
+npm run build
+```
 
-### Cara 1 — Via GitHub (Direkomendasikan)
-
-1. Push kode ke GitHub
-2. Login ke [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
-3. Pilih repo ini
-4. Konfigurasi build:
-   - **Framework preset**: Nuxt.js
-   - **Build command**: `npm run generate`
-   - **Build output directory**: `.output/public`
-5. Klik **Save and Deploy**
-6. Situs langsung tersedia di `kuttab.pages.dev` (atau domain custom Anda)
-
-### Cara 2 — Via GitHub Actions (Auto CI/CD)
-
-Tambahkan secrets berikut di **GitHub → Settings → Secrets and variables → Actions**:
-
-| Secret | Keterangan |
-|--------|------------|
-| `CLOUDFLARE_API_TOKEN` | API token Cloudflare (izin: Pages Edit) |
-| `CLOUDFLARE_ACCOUNT_ID` | Account ID dari dashboard Cloudflare |
-
-Setiap `git push` ke branch `main` akan otomatis men-deploy ke Cloudflare Pages.
-
-### Build Lokal
+### Generate static output
 
 ```bash
 npm run generate
-# Output ada di .output/public/
 ```
 
----
+### Deploy ke Cloudflare Pages
 
-## Konversi DOCX ke Markdown
-
-Jika Anda memiliki kitab dalam format DOCX, konversi menggunakan Pandoc:
+- Push repository ke GitHub
+- Login ke Cloudflare
+- Masuk ke Workers & Pages
+- Buat project baru dari repo GitHub
+- Gunakan build command:
 
 ```bash
-# Install pandoc (Ubuntu/Debian)
-sudo apt install pandoc
-
-# Konversi
-pandoc input.docx -o content/baca/nahwu/nama-kitab.md \
-  --wrap=none \
-  --markdown-headings=atx
-
-# Lalu tambahkan frontmatter secara manual di bagian atas file
+npm run generate
 ```
 
----
+- Output directory:
 
-## Teknologi
+```bash
+.output/public
+```
 
-| Teknologi | Kegunaan |
-|-----------|----------|
-| [Nuxt 3](https://nuxt.com) | Framework Vue.js dengan SSG |
-| [@nuxt/content](https://content.nuxt.com) | CMS berbasis file Markdown |
-| [Fuse.js](https://fusejs.io) | Full-text search client-side |
-| [Cloudflare Pages](https://pages.cloudflare.com) | Hosting CDN global, gratis |
-| [Amiri](https://fonts.google.com/specimen/Amiri) | Font Arab (Google Fonts) |
-| [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville) | Font display Latin |
-| [DM Sans](https://fonts.google.com/specimen/DM+Sans) | Font UI |
+## Roadmap
 
----
-
-## Rencana Pengembangan (Roadmap)
-
-- [ ] Pagefind — pencarian build-time untuk koleksi besar  
-- [ ] Sistem bookmark & anotasi (memerlukan Supabase)  
-- [ ] Fitur highlight teks & catatan pinggir  
-- [ ] Mode hafalan (sembunyi/tampilkan teks Arab)  
-- [ ] PWA (offline support)  
-- [ ] Ekspor ke PDF  
-
----
+- [x] Reader kitab
+- [x] Katalog per kategori
+- [x] Pencarian teks penuh
+- [x] Mode hafalan
+- [x] 404 page
+- [x] Sitemap
+- [ ] Bookmark dan anotasi
+- [ ] PWA / offline support
+- [ ] Export ke PDF
 
 ## Lisensi
 
-Kode sumber: **MIT License**  
-Konten kitab: mengikuti hak cipta masing-masing karya (umumnya domain publik untuk kitab klasik)
+Project code menggunakan lisensi MIT.
+
+Konten kitab mengikuti hak cipta masing-masing karya; sebagian besar kitab klasik berada di domain publik atau digunakan dalam konteks edukasi yang sesuai.
+
+## Kontribusi
+
+Pull request sangat diterima. Jika Anda ingin menambahkan kitab baru, silakan buat file Markdown sesuai struktur kategori yang ada dan sertakan frontmatter yang benar.
