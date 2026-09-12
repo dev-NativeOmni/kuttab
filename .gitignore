@@ -1,0 +1,27 @@
+# Nuxt 3 / Node
+node_modules
+.nuxt
+.output
+dist
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode
+.idea
+*.swp
+
+# Type declarations (auto-generated)
+*.d.ts
+!shims.d.ts
