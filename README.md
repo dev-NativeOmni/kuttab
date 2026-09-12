@@ -1,5 +1,10 @@
 # Kuttab
 
+![GitHub Actions](https://github.com/dev-NativeOmni/kuttab/actions/workflows/deploy.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Nuxt](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js&logoColor=white)
+![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)
+
 Perpustakaan kitab Islam digital berbasis Nuxt 3, dengan konten kitab dalam format Markdown, pencarian teks penuh menggunakan Fuse.js, dan deployment ke Cloudflare Pages.
 
 Kuttab dirancang untuk membaca kitab klasik Islam secara ringan, cepat, dan responsif di desktop maupun mobile.
