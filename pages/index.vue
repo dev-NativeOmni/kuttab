@@ -107,8 +107,10 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Kuttab — Perpustakaan Kitab Islam Digital',
+  title: 'Maktabah — Perpustakaan Kitab Islam Digital',
   description: 'Baca kitab Islam klasik dan kontemporer secara online. Matan Arab, terjemah Indonesia, pencarian teks penuh.',
+  ogTitle: 'Maktabah — Perpustakaan Kitab Islam Digital',
+  ogDescription: 'Baca kitab Islam klasik dan kontemporer secara online. Matan Arab, terjemah Indonesia, pencarian teks penuh.',
 })
 
 const categories = [

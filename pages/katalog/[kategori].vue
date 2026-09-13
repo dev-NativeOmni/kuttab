@@ -71,8 +71,10 @@ const catMap: Record<string, { name: string; sub: string; icon: string; color: s
 const catMeta = computed(() => catMap[slug.value] ?? { name: slug.value, sub: '', icon: '📖', color: '#A8721C' })
 
 useSeoMeta({
-  title: computed(() => `${catMeta.value.name} — Katalog Kuttab`),
+  title: computed(() => `${catMeta.value.name} — Katalog Maktabah`),
   description: computed(() => catMeta.value.sub),
+  ogTitle: computed(() => `${catMeta.value.name} — Katalog Maktabah`),
+  ogDescription: computed(() => catMeta.value.sub),
 })
 
 // Fetch books

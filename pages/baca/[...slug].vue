@@ -129,8 +129,10 @@ const { data: doc, pending } = await useAsyncData(`doc-${docPath.value}`, () =>
 
 // SEO
 useSeoMeta({
-  title:       computed(() => doc.value ? `${doc.value.title} — Kuttab` : 'Membaca Kitab'),
-  description: computed(() => doc.value?.description ?? ''),
+  title:          computed(() => doc.value ? `${doc.value.title} — Maktabah` : 'Membaca Kitab'),
+  description:    computed(() => doc.value?.description || 'Baca kitab Islam klasik dan kontemporer secara online di Maktabah.'),
+  ogTitle:        computed(() => doc.value ? `${doc.value.title} — Maktabah` : 'Membaca Kitab'),
+  ogDescription:  computed(() => doc.value?.description || 'Baca kitab Islam klasik dan kontemporer secara online di Maktabah.'),
 })
 
 // Category colour
@@ -163,7 +165,7 @@ const tocOpen = ref(false)
 
 // Mode Hafalan
 const isHafalan = useState<boolean>('hafalanMode', () => false)
-const HAFALAN_KEY = 'kuttab-hafalan-mode'
+const HAFALAN_KEY = 'maktabah-hafalan-mode'
 
 function toggleHafalan() {
   isHafalan.value = !isHafalan.value
@@ -174,7 +176,7 @@ function toggleHafalan() {
 
 // Font size
 const fontSize = ref(17)
-const FONT_KEY = 'kuttab-font-size'
+const FONT_KEY = 'maktabah-font-size'
 onMounted(() => {
   const storedFont = localStorage.getItem(FONT_KEY)
   if (storedFont) fontSize.value = parseInt(storedFont, 10)

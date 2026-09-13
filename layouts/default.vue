@@ -8,7 +8,7 @@
           <svg width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <polygon points="30,7 33.6,20.4 46.4,16.2 39.6,27.4 52,30 39.6,32.6 46.4,43.8 33.6,39.6 30,53 26.4,39.6 13.6,43.8 20.4,32.6 8,30 20.4,27.4 13.6,16.2 26.4,20.4" fill="currentColor"/>
           </svg>
-          <span class="logo-text">Kuttab</span>
+          <span class="logo-text">Maktabah</span>
         </NuxtLink>
 
         <!-- Search (desktop) -->
@@ -41,10 +41,10 @@
           <svg width="20" height="20" viewBox="0 0 60 60" fill="none" aria-hidden="true">
             <polygon points="30,7 33.6,20.4 46.4,16.2 39.6,27.4 52,30 39.6,32.6 46.4,43.8 33.6,39.6 30,53 26.4,39.6 13.6,43.8 20.4,32.6 8,30 20.4,27.4 13.6,16.2 26.4,20.4" fill="currentColor"/>
           </svg>
-          <span>Kuttab</span>
+          <span>Maktabah</span>
         </div>
         <p class="footer-tagline">Perpustakaan Kitab Islam Digital — gratis, terbuka, mudah diakses.</p>
-        <p class="footer-copy">© {{ new Date().getFullYear() }} Kuttab. Seluruh konten mengikuti lisensi masing-masing kitab.</p>
+        <p class="footer-copy">© {{ new Date().getFullYear() }} Maktabah. Seluruh konten mengikuti lisensi masing-masing kitab.</p>
       </div>
     </footer>
 
@@ -70,7 +70,7 @@
 const isDark = ref(false)
 
 onMounted(() => {
-  const stored = localStorage.getItem('kuttab-theme')
+  const stored = localStorage.getItem('maktabah-theme')
   if (stored) {
     isDark.value = stored === 'dark'
   } else {
@@ -82,7 +82,7 @@ onMounted(() => {
 function toggleTheme() {
   isDark.value = !isDark.value
   applyTheme()
-  localStorage.setItem('kuttab-theme', isDark.value ? 'dark' : 'light')
+  localStorage.setItem('maktabah-theme', isDark.value ? 'dark' : 'light')
 }
 
 function applyTheme() {

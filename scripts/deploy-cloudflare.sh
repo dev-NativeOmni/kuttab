@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_NAME="${PROJECT_NAME:-kuttab}"
+PROJECT_NAME="${PROJECT_NAME:-maktabah}"
 
  echo "[1/3] Generating static site..."
  npm run generate

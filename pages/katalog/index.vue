@@ -55,8 +55,10 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Katalog Kitab — Kuttab',
+  title: 'Katalog Kitab — Maktabah',
   description: 'Jelajahi katalog kitab Islam klasik dan kontemporer dari berbagai kategori ilmu.',
+  ogTitle: 'Katalog Kitab — Maktabah',
+  ogDescription: 'Jelajahi katalog kitab Islam klasik dan kontemporer dari berbagai kategori ilmu.',
 })
 
 const categories = [

@@ -54,7 +54,7 @@ const props = defineProps<{
 }>()
 
 useSeoMeta({
-  title: `${props.error?.statusCode || 404} — Kuttab`,
+  title: `${props.error?.statusCode || 404} — Maktabah`,
 })
 
 function handleClearError() {

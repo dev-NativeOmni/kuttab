@@ -1,5 +1,5 @@
 {
-  "name": "kuttab",
+  "name": "maktabah",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "deploy:cloudflare": "npm run generate && npx wrangler pages deploy dist --project-name=kuttab",
+    "deploy:cloudflare": "npm run generate && npx wrangler pages deploy dist --project-name=maktabah",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

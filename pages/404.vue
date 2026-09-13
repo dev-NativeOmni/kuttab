@@ -43,8 +43,9 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: '404 — Halaman Tidak Ditemukan | Kuttab',
-  description: 'Halaman atau kitab yang Anda cari tidak ditemukan di Kuttab.',
+  title: '404 — Halaman Tidak Ditemukan | Maktabah',
+  description: 'Halaman atau kitab yang Anda cari tidak ditemukan di Maktabah.',
+  robots: 'noindex, follow',
 })
 </script>
 
