@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "deploy:cloudflare": "npm run generate && npx wrangler pages deploy dist --project-name=maktabah",
+    "deploy:cloudflare": "npm run generate && npx wrangler pages deploy dist --project-name=maktabahku",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: 'https://maktabah.pages.dev',
+    url: 'https://maktabahku.pages.dev',
     name: 'Maktabah — Perpustakaan Kitab Islam Digital',
   },
 
@@ -44,10 +44,10 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Maktabah' },
         { property: 'og:locale', content: 'id_ID' },
-        { property: 'og:url', content: 'https://maktabah.pages.dev' },
+        { property: 'og:url', content: 'https://maktabahku.pages.dev' },
         { property: 'og:title', content: 'Maktabah — Perpustakaan Kitab Islam Digital' },
         { property: 'og:description', content: 'Baca kitab Islam klasik dan kontemporer secara online — matan Arab, terjemah Indonesia, dan pencarian teks penuh. Gratis, selamanya.' },
-        { property: 'og:image', content: 'https://maktabah.pages.dev/og-image.png' },
+        { property: 'og:image', content: 'https://maktabahku.pages.dev/og-image.png' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
         { property: 'og:image:alt', content: 'Maktabah — Perpustakaan Kitab Islam Digital' },
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Maktabah — Perpustakaan Kitab Islam Digital' },
         { name: 'twitter:description', content: 'Baca kitab Islam klasik dan kontemporer secara online — matan Arab, terjemah Indonesia, dan pencarian teks penuh.' },
-        { name: 'twitter:image', content: 'https://maktabah.pages.dev/og-image.png' },
+        { name: 'twitter:image', content: 'https://maktabahku.pages.dev/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
